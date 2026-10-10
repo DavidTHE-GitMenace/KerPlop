@@ -4,8 +4,8 @@ import gameEngine.Drawable;
 import gameEngine.InteractionResult;
 
 /**
- * A stationary danger that kills a player within two squares.
- * Its beam passes through intervening objects.
+ * This lasert thing kills a player within two squares
+ * the beam passes through intervening objects
  */
 public class LaserTurret extends GamePiece {
     private static final int RANGE = 2;
@@ -14,6 +14,7 @@ public class LaserTurret extends GamePiece {
         super('L', "Laser turret", location);
     }
 
+    // interaction obviously
     @Override
     public InteractionResult interact(Drawable[] gameBoard, int playerLocation) {
         if (Math.abs(playerLocation - getLocation()) <= RANGE) {

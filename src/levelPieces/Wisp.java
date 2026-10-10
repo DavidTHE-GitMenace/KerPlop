@@ -8,16 +8,18 @@ import gameEngine.InteractionResult;
 import gameEngine.Moveable;
 
 /**
- * A harmless ghost that randomly attempts to drift left or right.
- * Unlike the guard, it never reverses deliberately when blocked.
+ * A ghost that is pretty harmless that randomly attempts to drift left or right
+ * 
  */
 public class Wisp extends GamePiece implements Moveable {
     private final Random random = new Random();
 
+    // constructor
     public Wisp(int location) {
         super('W', "Wisp", location);
     }
 
+    // drawing it and moving it
     @Override
     public void move(Drawable[] gameBoard, int playerLocation) {
         int direction = random.nextBoolean() ? 1 : -1;
