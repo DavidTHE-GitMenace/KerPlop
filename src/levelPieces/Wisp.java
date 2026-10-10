@@ -26,8 +26,7 @@ public class Wisp extends GamePiece implements Moveable {
         int nextLocation = getLocation() + direction;
 
         // A failed random move simply leaves the wisp in place.
-        if (nextLocation >= 0 && nextLocation < GameEngine.BOARD_SIZE
-                && gameBoard[nextLocation] == null) {
+        if (nextLocation >= 0 && nextLocation < GameEngine.BOARD_SIZE && gameBoard[nextLocation] == null) {
             gameBoard[getLocation()] = null;
             gameBoard[nextLocation] = this;
             setLocation(nextLocation);

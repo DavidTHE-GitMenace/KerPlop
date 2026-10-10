@@ -15,7 +15,12 @@ public class ClockworkGuard extends GamePiece implements Moveable {
     // constructor
     public ClockworkGuard(int location, int initialDirection) {
         super('G', "Clockwork guard", location);
-        direction = initialDirection < 0 ? -1 : 1;
+        if (initialDirection < 0) {
+        	direction = -1;
+        }
+        else {
+        	direction = 1;
+        }
     }
 
     // 
