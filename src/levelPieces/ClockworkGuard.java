@@ -21,6 +21,7 @@ public class ClockworkGuard extends GamePiece implements Moveable {
         else {
         	direction = 1;
         }
+        
     }
 
     // 

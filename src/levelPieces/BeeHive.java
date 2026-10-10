@@ -6,9 +6,9 @@ import gameEngine.InteractionResult;
 /**
  * Hurts the player whenever they step on the trap's square
  */
-public class SpikeTrap extends GamePiece {
-    public SpikeTrap(int location) {
-        super('T', "Spike trap", location);
+public class BeeHive extends GamePiece {
+    public BeeHive(int location) {
+        super('B', "Bee hive", location);
     }
 
     // interaaction when player steps on trap

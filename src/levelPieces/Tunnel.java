@@ -6,9 +6,9 @@ import gameEngine.InteractionResult;
 /**
  * sends the player to the next level
  */
-public class Portal extends GamePiece {
-    public Portal(int location) {
-        super('O', "Portal", location);
+public class Tunnel extends GamePiece {
+    public Tunnel(int location) {
+        super('O', "Tunnel Opening", location);
     }
 
     // portal interaction function

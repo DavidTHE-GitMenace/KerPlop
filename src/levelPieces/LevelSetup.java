@@ -41,8 +41,8 @@ public class LevelSetup {
 
 			// Stationary interactive pieces
 			Coin coin = new Coin(11);
-			Portal portal = new Portal(13);
-			SpikeTrap trap = new SpikeTrap(16);
+			Tunnel portal = new Tunnel(13);
+			BeeHive trap = new BeeHive(16);
 			LaserTurret laser = new LaserTurret(20);
 
 			board[11] = coin;
@@ -73,8 +73,8 @@ public class LevelSetup {
 
 			// Stationary interactive pieces
 			Coin coin = new Coin(11);
-			Portal portal = new Portal(14);
-			SpikeTrap trap = new SpikeTrap(16);
+			Tunnel portal = new Tunnel(14);
+			BeeHive trap = new BeeHive(16);
 			LaserTurret laser = new LaserTurret(20);
 
 			board[11] = coin;

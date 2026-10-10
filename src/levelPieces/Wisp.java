@@ -22,7 +22,7 @@ public class Wisp extends GamePiece implements Moveable {
     // drawing it and moving it
     @Override
     public void move(Drawable[] gameBoard, int playerLocation) {
-        int direction = random.nextBoolean() ? 1 : -1;
+        int direction = random.nextBoolean() ? 1 : -1; // easier way to write if statement
         int nextLocation = getLocation() + direction;
 
         // A failed random move simply leaves the wisp in place.

@@ -1,0 +1,97 @@
+KerPlop - Game Piece Descriptions
+===============================
+
+Team Members: [Add both partners' names]
+
+Game Overview
+-------------
+The player moves along a 21-position board, collects coins, avoids dangers,
+and advances through two levels. All new game pieces and LevelSetup are in
+the levelPieces package. The provided gameEngine package is unchanged.
+
+Game Pieces (7 total)
+---------------------
+
+1. Flag (F)
+   Class: Flag implements Drawable
+   Movement: None
+   Interaction: None; this class does not extend GamePiece.
+   Description: A decorative flag drawn on the board. It has no effect on
+   the player and is not added to the interactingPieces list.
+
+2. ClockworkGuard (G)
+   Class: ClockworkGuard extends GamePiece implements Moveable
+   Movement: Moves one square each turn in its current direction. If the
+   next square is occupied or outside the board, it reverses direction
+   and tries the opposite square. It does not overwrite other pieces.
+   Interaction: HIT when the player is at the guard's square or one
+   square away; otherwise NONE. This is a distance interaction.
+
+3. Wisp (W)
+   Class: Wisp extends GamePiece implements Moveable
+   Movement: Uses a random boolean on every turn to choose left or
+   right. Moves one square if the chosen square is empty and in bounds;
+   otherwise stays in place. This is the random movement algorithm.
+   Interaction: Always NONE; it is a harmless moving piece.
+
+4. Coin (C)
+   Class: Coin extends GamePiece
+   Movement: None
+   Interaction: GET_POINT when the player lands on the same square;
+   otherwise NONE. After collection, the coin is removed from the
+   visible board and cannot award points again.
+
+5. Portal (O)
+   Class: Portal extends GamePiece
+   Movement: None
+   Interaction: ADVANCE when the player lands on the same square;
+   otherwise NONE. The game advances to the next level (or wins after
+   the final level).
+
+6. SpikeTrap (T)
+   Class: SpikeTrap extends GamePiece
+   Movement: None
+   Interaction: HIT when the player lands on the same square;
+   otherwise NONE. This piece can damage the player.
+
+7. LaserTurret (L)
+   Class: LaserTurret extends GamePiece
+   Movement: None
+   Interaction: KILL when the player is within two positions on either
+   side of the turret (including its own square); otherwise NONE. The
+   laser ignores pieces between itself and the player. This is another
+   distance interaction.
+
+Levels
+------
+Level 1: Player starts at 10. Flag at 2, ClockworkGuard at 4,
+Wisp at 7, Coin at 11, Portal at 13, SpikeTrap at 16,
+LaserTurret at 20.
+
+Level 2: Player starts at 10. ClockworkGuard at 3, Wisp at 7,
+Coin at 11, Portal at 14, SpikeTrap at 16, Flag at 18,
+LaserTurret at 20.
+
+LevelSetup creates a Drawable[] board, an ArrayList<Moveable> of moving
+pieces, and an ArrayList<GamePiece> of interacting pieces. Moving pieces
+are added to all appropriate structures; stationary interactive pieces
+are added to the board and interacting list; the Flag is added only to
+the board.
+
+Requirements Checklist
+----------------------
+- 7 total piece classes: Flag, ClockworkGuard, Wisp, Coin, Portal,
+  SpikeTrap, LaserTurret.
+- 1 Drawable-only piece: Flag.
+- 2 Moveable GamePieces: ClockworkGuard and Wisp.
+- 2 different movement algorithms: reversing patrol and random drift.
+- Random decision: Wisp chooses its movement direction randomly.
+- 4 stationary interactive GamePieces: Coin, Portal, SpikeTrap,
+  LaserTurret.
+- All InteractionResult values used: NONE, HIT, KILL, ADVANCE,
+  GET_POINT.
+- Distance interactions: ClockworkGuard (range 1) and
+  LaserTurret (range 2).
+- Exactly 3 pieces interact only on the same square: Coin, Portal,
+  SpikeTrap.
+- 2 levels defined in LevelSetup.
